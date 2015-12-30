@@ -22,11 +22,9 @@ function(Entry, $scope, $mdDialog, $mdMedia) {
     /**
      * Sets mobileMenu to true.
      */
-    this.showMenu = function() {
-        console.log('showmenu');
-        self.mobileMenu = true;
-        self.icon = false;
-        console.log('this.menu', this.menu);
+    this.showHideMenu = function() {
+        self.icon = !self.icon;
+        self.mobileMenu = !self.mobileMenu;
     };
 
     this.closeCard = function () {
