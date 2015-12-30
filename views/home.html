@@ -6,11 +6,10 @@
         <h2><span>My books</span></h2>
     </div>
 </md-toolbar>
-
-<md-list ng-show="home.menu" class="white list" hide-gt-xs>
-    <md-list-item ng-repeat="item in [1,2,4]">
+<md-list ng-show="home.menu" class="white no-padding" hide-gt-xs>
+    <md-list-item ng-repeat="book in home.books">
         <div class="md-list-item-text" layout="column">
-            <h4>{{item}}</h4>
+            <h4>{{book.title}}</h4>
         </div>
         <md-divider></md-divider>
     </md-list-item>
@@ -20,3 +19,64 @@
         list
     </div>
 </md-toolbar>
+<md-content class="md-padding back-color" layout="row" layout-wrap layout-align="center start" layout-xs="column" >
+    <div flex="50" flex-xs="100" layout="column">
+        <md-card ng-if="home.form">
+        <md-card-content>
+            <md-card-title>
+              <md-card-title-text>
+                <span class="md-headline">Welcome back!</span>
+                <span class="md-subhead">It's been a while.</span>
+                <span class="md-subhead">Read any new books lately?</span>
+              </md-card-title-text>
+            </md-card-title>
+        </md-card-content>  
+        <md-card-actions layout="row" layout-align="end center">
+          <md-button>NO</md-button>
+          <md-button>YES</md-button>
+        </md-card-actions>
+      </md-card>
+        <md-card ng-repeat="book in home.books track by $index"
+                 ng-if="$index%2===0">
+        <md-card-content>
+            <md-card-title>
+              <md-card-title-text>
+                <span class="md-headline">{{book.title}}</span>
+                <span class="md-subhead">By {{book.author}}</span>
+              </md-card-title-text>
+            </md-card-title>
+        </md-card-content>  
+          <md-card-title-media>
+            <div class="md-media-md card-media">
+                <img ng-src={{book.image}} alt={{book.title}}>
+            </div>
+          </md-card-title-media>
+        <md-card-actions layout="row" layout-align="end center">
+          <md-button>FREE SAMPLE</md-button>
+          <md-button>REVIEW</md-button>
+        </md-card-actions>
+      </md-card>
+    </div>
+    <div flex="50" flex-xs="100" layout="column">
+          <md-card ng-repeat="book in home.books track by $index"
+                 ng-if="$index%2">
+        <md-card-content>
+            <md-card-title>
+              <md-card-title-text>
+                <span class="md-headline">{{book.title}}</span>
+                <span class="md-subhead">By {{book.author}}</span>
+              </md-card-title-text>
+            </md-card-title>
+        </md-card-content>  
+          <md-card-title-media>
+            <div class="md-media-md card-media">
+                <img ng-src={{book.image}} alt={{book.title}}>
+            </div>
+          </md-card-title-media>
+        <md-card-actions layout="row" layout-align="end center">
+          <md-button>FREE SAMPLE</md-button>
+          <md-button>REVIEW</md-button>
+        </md-card-actions>
+      </md-card>
+    </div>
+  </md-content>

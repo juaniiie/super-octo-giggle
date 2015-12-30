@@ -1,10 +1,14 @@
-app.controller('HomeController', ['$state',
-function($state) {
+app.controller('HomeController', ['Entry',
+function(Entry) {
 
     this.menu = false;
 
+    this.books = Entry.books;
+
+    this.form = true;
+
     /**
-     * Sets User.email and redirects to game page.
+     * Sets menu to true.
      */
     this.showMenu = function() {
         console.log('showmenu');

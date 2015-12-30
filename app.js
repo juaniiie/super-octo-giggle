@@ -19,6 +19,7 @@ app.config(function($stateProvider, $urlRouterProvider, $mdThemingProvider) {
             'default': '50'
         })
         .warnPalette('pink', {
-            'default': '900'
-        });
+            'default': '500'
+        })
+        .backgroundPalette('grey');
 });

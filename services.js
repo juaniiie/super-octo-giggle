@@ -1,20 +1,50 @@
 app.factory('Menu', 
 function() {
 
-    var email = '';
 
     /**
-     * Updates current user email.
-     * submittedEmail - String of new user email.
-     * Returns User email.
+     * 
+     * 
+     * 
      **/
-    var getCurrentUser = function(submittedEmail) {
-        email = submittedEmail;
-        return email;
-    };
+  
 
     return {
-        email: email,
-        getCurrentUser: getCurrentUser,
+       
+    };
+});
+
+app.factory('Entry', 
+function() {
+
+    var number = function() {
+        return Math.floor(Math.random()*5) + 1;
+    };
+
+    var books = [
+        {
+            title: 'El Pooch',
+            author: 'Alex Nelson',
+            image: 'assets/cat' + number() + '.jpg'
+        },
+        {
+            title: 'The Flight',
+            author: 'Scott Masterson',
+            image: 'assets/cat' + number() + '.jpg'
+        },
+        {
+            title: 'El Pooch',
+            author: 'Alex Nelson',
+            image: 'assets/cat' + number() + '.jpg'
+        },
+        {
+            title: 'The Flight',
+            author: 'Scott Masterson',
+            image: 'assets/cat' + number() + '.jpg'
+        }
+    ];
+
+    return {
+        books: books
     };
 });
