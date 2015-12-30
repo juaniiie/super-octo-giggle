@@ -11,7 +11,7 @@
     </div>
 </md-toolbar>
 <!-- Mobile menu veritcal book list -->
-<md-list ng-show="home.menu" 
+<md-list ng-show="home.mobileMenu" 
          class="white no-padding" 
          hide-gt-xs>
     <md-list-item ng-repeat="book in home.books">
@@ -54,8 +54,12 @@
             <!--Welcome card buttons  -->
             <md-card-actions layout="row" 
                              layout-align="end center">
-                <md-button>NO</md-button>
-                <md-button ng-click="home.showDialog($event)">YES</md-button>
+                <md-button ng-click="home.closeCard()">
+                    NO
+                </md-button>
+                <md-button ng-click="home.showDialog($event)">
+                    YES
+                </md-button>
             </md-card-actions>
         </md-card>
         <!-- Left book cards -->

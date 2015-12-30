@@ -3,23 +3,12 @@ function(Entry, $scope, $mdDialog, $mdMedia) {
 
     var self = this;
 
-    this.menu = false;
+    this.mobileMenu = false;
 
     this.books = Entry.books;
 
     this.welcomeForm = true;
 
-
-    /**
-     * Sets menu to true.
-     */
-    this.showMenu = function() {
-        console.log('showmenu');
-        this.menu = true;
-        console.log('this.menu', this.menu);
-    };
-
-    
     this.newBookEntry = {
         title: '',
         author: '',
@@ -27,6 +16,20 @@ function(Entry, $scope, $mdDialog, $mdMedia) {
     };
 
     this.customFullscreen = $mdMedia('xs') || $mdMedia('sm');
+    
+    /**
+     * Sets mobileMenu to true.
+     */
+    this.showMenu = function() {
+        console.log('showmenu');
+        self.mobileMenu = true;
+        console.log('this.menu', this.menu);
+    };
+
+    this.closeCard = function () {
+        self.welcomeForm = false;
+    };
+
 
     this.showDialog = function(ev) {   
 
