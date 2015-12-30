@@ -1,19 +1,3 @@
-app.factory('Menu', 
-function() {
-
-
-    /**
-     * 
-     * 
-     * 
-     **/
-  
-
-    return {
-       
-    };
-});
-
 app.factory('Entry', 
 function() {
     
@@ -46,7 +30,6 @@ function() {
             image: imageUrl()
         }
     ];
-
 
     return {
         imageUrl: imageUrl,
