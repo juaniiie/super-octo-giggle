@@ -19,20 +19,28 @@ function(Entry, $scope, $mdDialog, $mdMedia) {
 
     this.customFullscreen = $mdMedia('xs') || $mdMedia('sm');
 
-    this.useFullScreen = ($mdMedia('sm') || $mdMedia('xs'))  && self.customFullscreen;
+    this.useFullScreen = ($mdMedia('sm') || $mdMedia('xs')) && self.customFullscreen;
     
     /**
-     * Sets mobileMenu to true.
+     * Toggles mobile toolbar icon
+     * Toggles between mobile and web book list
      */
     this.showHideMenu = function() {
         self.icon = !self.icon;
         self.mobileMenu = !self.mobileMenu;
     };
 
+    /**
+     * Hides welcome card
+     */
     this.closeCard = function () {
         self.welcomeForm = false;
     };
 
+    /**
+     * Shows book entry form in lightbox for web
+     * Shows entry form full-screen for mobile
+     */
     this.showDialog = function(ev) {   
         
         $mdDialog.show({
@@ -45,6 +53,7 @@ function(Entry, $scope, $mdDialog, $mdMedia) {
             escapeToClose:true,
             fullscreen: self.useFullScreen
         });
+
         $scope.$watch(function() {
           return $mdMedia('xs') || $mdMedia('sm');
         }, function(wantsFullScreen) {
@@ -52,6 +61,9 @@ function(Entry, $scope, $mdDialog, $mdMedia) {
         });
     };
 
+    /**
+     * Shows alert dialog when duplicate book is entered
+     */
     this.showAlert = function(ev) {
         $mdDialog.show(
             $mdDialog.alert()
@@ -65,12 +77,19 @@ function(Entry, $scope, $mdDialog, $mdMedia) {
         );
     };
 
+    /**
+     * Closes dialog
+     */
     this.closeDialog = function() {
         $mdDialog.hide();
     };
 
+    /**
+     * If book in not in books array, adds book
+     * else calls showAlert function
+     */
     this.addBook = function() {
-        if(Entry.isBookRead(self.newBookEntry)) {
+        if (Entry.isBookRead(self.newBookEntry)) {
             self.closeDialog();
             self.showAlert();
         } else {

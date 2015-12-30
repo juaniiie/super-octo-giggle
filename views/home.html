@@ -16,7 +16,7 @@
         <h2><span>My books</span></h2>
     </div>
 </md-toolbar>
-<!-- Mobile menu veritcal book list -->
+<!-- Mobile menu book list -->
 <md-list ng-show="home.mobileMenu" 
          class="white no-padding" 
          hide-gt-xs>
@@ -36,25 +36,28 @@
         </span>
     </div>
 </md-toolbar>
-<!-- Page content -->
-<md-content class="md-padding back-color" 
+<!-- Cards content -->
+<md-content class="back-color" 
             layout="row" 
             layout-wrap 
             layout-align="center start" 
-            layout-xs="column" >
-    <!-- Left column -->
+            layout-xs="column">
+    <!-- Two colums for web -->
     <div flex="50" 
-         flex-xs="100" 
-         layout="column">
+         layout-sm="column"
+         show-gt-xs
+         hide-xs>
         <!-- Welcome card -->
         <md-card ng-if="home.welcomeForm">
             <md-card-content>
                 <md-card-title>
-                  <md-card-title-text>
-                    <span class="md-headline">Welcome back!</span>
-                    <span class="md-subhead">It's been a while.</span>
-                    <span class="md-subhead">Read any new books lately?</span>
-                  </md-card-title-text>
+                    <md-card-title-text>
+                        <span class="md-headline">Welcome back!</span>
+                        <span class="md-subhead">
+                            It's been a while.<br>
+                            Read any new books lately?
+                        </span>
+                    </md-card-title-text>
                 </md-card-title>
             </md-card-content>
             <!--Welcome card buttons  -->
@@ -63,7 +66,8 @@
                 <md-button ng-click="home.closeCard()">
                     NO
                 </md-button>
-                <md-button ng-click="home.showDialog($event)">
+                <md-button ng-click="home.showDialog($event)"
+                           class="md-accent">
                     YES
                 </md-button>
             </md-card-actions>
@@ -89,34 +93,91 @@
             <md-card-actions layout="row" 
                              layout-align="end center">
                 <md-button>FREE SAMPLE</md-button>
-                <md-button>REVIEW</md-button>
+                <md-button class="md-accent">REVIEW</md-button>
             </md-card-actions>
         </md-card>
     </div>
     <!-- Right column -->
-    <div flex="50" flex-xs="100" layout="column">
+    <div flex="50"
+         layout="column"
+         show-gt-xs
+         hide-xs>
         <!-- Right book cards-->
         <md-card ng-repeat="book in home.books track by $index"
                  ng-if="$index%2">
             <md-card-content>
                 <md-card-title>
-                  <md-card-title-text>
-                    <span class="md-headline">{{book.title}}</span>
-                    <span class="md-subhead">By {{book.author}}</span>
-                  </md-card-title-text>
+                    <md-card-title-text>
+                        <span class="md-headline">{{book.title}}</span>
+                        <span class="md-subhead">By {{book.author}}</span>
+                    </md-card-title-text>
                 </md-card-title>
             </md-card-content>
-            <!-- Right card image -->
+        <!-- Right card image -->
             <md-card-title-media>
                 <div class="md-media-md card-media">
                     <img ng-src={{book.image}} alt={{book.title}}>
                 </div>
             </md-card-title-media>
-            <!-- Right card buttons -->
+        <!-- Right card buttons -->
             <md-card-actions layout="row" 
                              layout-align="end center">
                 <md-button>FREE SAMPLE</md-button>
-                <md-button>REVIEW</md-button>
+                <md-button class="md-accent">REVIEW</md-button>
+            </md-card-actions>
+        </md-card>
+    </div>
+    <!-- One column for mobile -->
+    <div flex="100" 
+         layout-sm="column"
+         show-xs
+         hide-gt-xs>
+        <!-- Welcome card -->
+        <md-card ng-if="home.welcomeForm">
+            <md-card-content>
+                <md-card-title>
+                    <md-card-title-text>
+                        <span class="md-headline">Welcome back!</span>
+                        <span class="md-subhead">
+                            It's been a while.<br>
+                            Read any new books lately?
+                        </span>
+                    </md-card-title-text>
+                </md-card-title>
+            </md-card-content>
+            <!--Welcome card buttons  -->
+            <md-card-actions layout="row" 
+                             layout-align="end center">
+                <md-button ng-click="home.closeCard()">
+                    NO
+                </md-button>
+                <md-button ng-click="home.showDialog($event)"
+                           class="md-accent">
+                    YES
+                </md-button>
+            </md-card-actions>
+        </md-card>
+        <!-- Book cards -->
+        <md-card ng-repeat="book in home.books track by $index">
+            <md-card-content>
+                <md-card-title>
+                    <md-card-title-text>
+                        <span class="md-headline">{{book.title}}</span>
+                        <span class="md-subhead">By {{book.author}}</span>
+                    </md-card-title-text>
+                </md-card-title>
+            </md-card-content>  
+            <!-- Card image -->
+            <md-card-title-media>
+                <div class="md-media-md card-media">
+                    <img ng-src={{book.image}} alt={{book.title}}>
+                </div>
+            </md-card-title-media>
+            <!-- Card buttons -->
+            <md-card-actions layout="row" 
+                             layout-align="end center">
+                <md-button>FREE SAMPLE</md-button>
+                <md-button class="md-accent">REVIEW</md-button>
             </md-card-actions>
         </md-card>
     </div>

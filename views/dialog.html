@@ -9,14 +9,18 @@
         <form name="bookForm">
             <md-input-container class="md-block">
                 <label>Title</label>
-                <input required name="title" ng-model="home.newBookEntry.title">
+                <input name="title"
+                       ng-model="home.newBookEntry.title"
+                       required>
                 <div ng-messages="bookForm.description.$error">
                     <div ng-message="required">Book title is required</div>
                 </div>
             </md-input-container>
             <md-input-container class="md-block">
                 <label>Author</label>
-                <input required name="author" ng-model="home.newBookEntry.author">
+                <input name="author"
+                       ng-model="home.newBookEntry.author"
+                       required>
                 <div ng-messages="bookForm.author.$error">
                     <div ng-message="required">Author is required.</div>
                 </div>
@@ -25,7 +29,8 @@
                 <md-button ng-click="home.closeDialog()">
                     Cancel
                 </md-button>
-                <md-button ng-click="home.addBook()">
+                <md-button ng-click="home.addBook()"
+                           ng-disabled="bookForm.$invalid">
                     Submit
                 </md-button>
             </md-dialog-actions>

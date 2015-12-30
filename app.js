@@ -15,11 +15,7 @@ app.config(function($stateProvider, $urlRouterProvider, $mdThemingProvider) {
 
     $mdThemingProvider.theme('default')
         .primaryPalette('indigo')
-        .accentPalette('orange', {
-            'default': '50'
-        })
-        .warnPalette('pink', {
+        .accentPalette('pink', {
             'default': '500'
-        })
-        .backgroundPalette('grey');
+        });
 });
