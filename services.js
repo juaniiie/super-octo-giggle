@@ -33,13 +33,13 @@ function() {
             image: 'assets/cat' + number() + '.jpg'
         },
         {
-            title: 'El Pooch',
-            author: 'Alex Nelson',
+            title: 'El Gato',
+            author: 'Allen Chen',
             image: 'assets/cat' + number() + '.jpg'
         },
         {
-            title: 'The Flight',
-            author: 'Scott Masterson',
+            title: 'The Ordeal',
+            author: 'Bece Ra',
             image: 'assets/cat' + number() + '.jpg'
         }
     ];
