@@ -22,7 +22,8 @@ function(Entry, $scope, $mdDialog, $mdMedia) {
     
     this.newBookEntry = {
         title: '',
-        author: ''
+        author: '',
+        image: Entry.imageUrl()
     };
 
     this.customFullscreen = $mdMedia('xs') || $mdMedia('sm');
