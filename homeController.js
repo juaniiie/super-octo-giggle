@@ -6,8 +6,9 @@ function($state) {
     /**
      * Sets User.email and redirects to game page.
      */
-    this.startGame = function() {
-        User.email = this.email;
-        $state.go('game');
+    this.showMenu = function() {
+        console.log('showmenu');
+        this.menu = true;
+        console.log('this.menu', this.menu);
     };
 }]);
