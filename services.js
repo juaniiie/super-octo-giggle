@@ -31,8 +31,18 @@ function() {
         }
     ];
 
+    var isBookRead = function(bookEntry) {
+        for(var i = 0; i < books.length; i++) {
+            if(books[i].title === bookEntry.title && books[i].author === bookEntry.author) {
+                return true;
+            }
+        }
+        return false;
+    };
+
     return {
         imageUrl: imageUrl,
-        books: books
+        books: books,
+        isBookRead: isBookRead
     };
 });

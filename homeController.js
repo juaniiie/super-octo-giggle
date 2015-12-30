@@ -18,6 +18,8 @@ function(Entry, $scope, $mdDialog, $mdMedia) {
     };
 
     this.customFullscreen = $mdMedia('xs') || $mdMedia('sm');
+
+    this.useFullScreen = ($mdMedia('sm') || $mdMedia('xs'))  && self.customFullscreen;
     
     /**
      * Sets mobileMenu to true.
@@ -31,10 +33,7 @@ function(Entry, $scope, $mdDialog, $mdMedia) {
         self.welcomeForm = false;
     };
 
-
     this.showDialog = function(ev) {   
-
-        var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'))  && self.customFullscreen;
         
         $mdDialog.show({
             controller: 'HomeController',
@@ -44,7 +43,7 @@ function(Entry, $scope, $mdDialog, $mdMedia) {
             targetEvent: ev,
             clickOutsideToClose:true,
             escapeToClose:true,
-            fullscreen: useFullScreen
+            fullscreen: self.useFullScreen
         });
         $scope.$watch(function() {
           return $mdMedia('xs') || $mdMedia('sm');
@@ -53,14 +52,31 @@ function(Entry, $scope, $mdDialog, $mdMedia) {
         });
     };
 
+    this.showAlert = function(ev) {
+        $mdDialog.show(
+            $mdDialog.alert()
+                .parent(angular.element(document.body))
+                .clickOutsideToClose(true)
+                .title('Watch out!')
+                .textContent('This book is already saved!')
+                .ariaLabel('Alert Dialog')
+                .ok('Got it!')
+                .targetEvent(ev)
+        );
+    };
+
     this.closeDialog = function() {
         $mdDialog.hide();
     };
 
     this.addBook = function() {
-        console.log('add book called');
-        self.books.push(self.newBookEntry);
-        self.closeDialog();
+        if(Entry.isBookRead(self.newBookEntry)) {
+            self.closeDialog();
+            self.showAlert();
+        } else {
+            self.books.push(self.newBookEntry);  
+            self.closeDialog();
+        }
     };
 
 }]);
