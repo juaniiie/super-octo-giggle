@@ -15,12 +15,14 @@
 1. Open directory 
 
 1. In command line type:
+
 ```sh
-  bower install
+bower install
 ```
-1. Run simple server python command: 
+1. Run simple server python command:
+
 ```sh
-  python -m SimpleHTTPServer
+python -m SimpleHTTPServer
 ```
 1. On your device or laptop navigate to: http://localhost:8000/ or whichever port the Python server indicates 
 
@@ -40,4 +42,3 @@
 - The latest version of Mac OS X, El Capitan, comes with Python 2.7 out of the box
 
 - If you don't have Python installed follow the instructions on this [page] (http://docs.python-guide.org/en/latest/starting/install/osx/)
-
