@@ -14,16 +14,10 @@
 
 1. Open directory 
 
-1. In command line type:
+1. In command line type: `bower install`
 
-```sh
-bower install
-```
-1. Run simple server python command:
+1. Run simple server python command: `python -m SimpleHTTPServer`
 
-```sh
-python -m SimpleHTTPServer
-```
 1. On your device or laptop navigate to: http://localhost:8000/ or whichever port the Python server indicates 
 
 ## Requirements
@@ -37,7 +31,7 @@ python -m SimpleHTTPServer
 
 ## Development
 
-1.Install Python
+1. Install Python
 
 - The latest version of Mac OS X, El Capitan, comes with Python 2.7 out of the box
 
