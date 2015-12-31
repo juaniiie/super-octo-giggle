@@ -12,7 +12,7 @@
 
 1. Fork and clone repo
 
-1. Open directory 
+1. Navigate to repo directory 
 
 1. In command line type: `bower install`
 
