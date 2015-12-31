@@ -15,12 +15,10 @@
 1. Open directory 
 
 1. In command line type:
-
 ```sh
   bower install
 ```
 1. Run simple server python command: 
-
 ```sh
   python -m SimpleHTTPServer
 ```
@@ -41,5 +39,5 @@
 
 - The latest version of Mac OS X, El Capitan, comes with Python 2.7 out of the box
 
--If you don't have Python installed follow the instructions on this [page] (http://docs.python-guide.org/en/latest/starting/install/osx/)
+- If you don't have Python installed follow the instructions on this [page] (http://docs.python-guide.org/en/latest/starting/install/osx/)
 
